@@ -1,57 +1,60 @@
-﻿@model UserProfile
+﻿@model IEnumerable<UserProfile>
 
 @{
-    ViewData["Title"] = Model.FullName + " Profile Page";
+    ViewData["Title"] = "User Profils";
 }
 
 <h1>Profile Page</h1>
 <div class="d-flex justify-content-end">
     <button id="toggle-dark-mode" class="btn btn-primary">Toggle Dark Mode</button>
 </div>
-<div>
-    <h4>UserProfile</h4>
+
+@foreach (var user in Model)
+{
+    <div>
+        <h4>@user.FullName's Profile</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.UserProfileId)
         </dt>
         <dd class = "col-sm-10">
-            @Model.UserProfileId
+			@user.UserProfileId
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FullName)
         </dt>
         <dd class = "col-sm-10">
-            @Model.FullName
+            @user.FullName
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Email)
         </dt>
         <dd class = "col-sm-10">
-            @Model.Email
+            @user.Email
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </dt>
         <dd class = "col-sm-10">
-			<a href="tel:@Model.PhoneNumber">@Model.PhoneNumber</a>
+			<a href="tel:@user.PhoneNumber">@user.PhoneNumber</a>
 		</dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ImageUrl)
         </dt>
         <dd class = "col-sm-10">
-            <img src="@Model.ImageUrl" />
+            <img src="@user.ImageUrl" />
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.GitHubUrl)
         </dt>
         <dd class = "col-sm-10">
-            <img src="@Model.GitHubUrl" />
+            <img src="@user.GitHubUrl" />
         </dd>
         <dt>Skilled Languages</dt>
         <dd>
             <ul>
-                @foreach(string languageSkill in Model.SkilledLanguages)
+                @foreach(string languageSkill in user.SkilledLanguages)
                 {
                     <li>@languageSkill</li>
                 }
@@ -59,3 +62,5 @@
         </dd>
     </dl>
 </div>
+<hr/>
+}
