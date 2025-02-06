@@ -1,66 +1,187 @@
-﻿@model IEnumerable<UserProfile>
+﻿@model UserProfile
 
 @{
-    ViewData["Title"] = "User Profils";
+    ViewData["Title"] = Model.FullName + " Profile Page";
 }
 
-<h1>Profile Page</h1>
+<h1 class="card-header">Profile Page</h1>
 <div class="d-flex justify-content-end">
     <button id="toggle-dark-mode" class="btn btn-primary">Toggle Dark Mode</button>
 </div>
-
-@foreach (var user in Model)
-{
-    <div>
-        <h4>@user.FullName's Profile</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserProfileId)
-        </dt>
-        <dd class = "col-sm-10">
-			@user.UserProfileId
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd class = "col-sm-10">
-            @user.FullName
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @user.Email
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-			<a href="tel:@user.PhoneNumber">@user.PhoneNumber</a>
-		</dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            <img src="@user.ImageUrl" />
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GitHubUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            <img src="@user.GitHubUrl" />
-        </dd>
-        <dt>Skilled Languages</dt>
-        <dd>
-            <ul>
-                @foreach(string languageSkill in user.SkilledLanguages)
-                {
-                    <li>@languageSkill</li>
-                }
-            </ul>
-        </dd>
-    </dl>
+<h4>Ada Lovelace</h4>
+<p>
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        View Profile
+    </a>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+		<dl class="row">
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.UserProfileId)
+			</dt>
+			<dd class="col-sm-10">
+				@Model.UserProfileId
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.FullName)
+			</dt>
+			<dd class="col-sm-10">
+				@Model.FullName
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Email)
+			</dt>
+			<dd class="col-sm-10">
+				@Model.Email
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.PhoneNumber)
+			</dt>
+			<dd class="col-sm-10">
+				<a href="tel:@Model.PhoneNumber">@Model.PhoneNumber</a>
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.ImageUrl)
+			</dt>
+			<dd class="col-sm-10">
+				<img src="@Model.ImageUrl" />
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.GitHubUrl)
+			</dt>
+			<dd class="col-sm-10">
+				<img src="@Model.GitHubUrl" />
+			</dd>
+			<dt>Skilled Languages</dt>
+			<dd>
+				<ul>
+					@foreach (string languageSkill in Model.SkilledLanguages)
+					{
+						<li>@languageSkill</li>
+					}
+				</ul>
+			</dd>
+		</dl>
+    </div>
 </div>
-<hr/>
-}
+
+<br />
+
+<h4>John Smith</h4>
+<p>
+	<a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+		View Profile
+	</a>
+</p>
+<div class="collapse" id="collapseExample2">
+	<div class="card card-body">
+		<dl class="row">
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.UserProfileId)
+			</dt>
+			<dd class="col-sm-10">
+				@Model.UserProfileId
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.FullName)
+			</dt>
+			<dd class="col-sm-10">
+				@Model.FullName
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Email)
+			</dt>
+			<dd class="col-sm-10">
+				@Model.Email
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.PhoneNumber)
+			</dt>
+			<dd class="col-sm-10">
+				<a href="tel:@Model.PhoneNumber">@Model.PhoneNumber</a>
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.ImageUrl)
+			</dt>
+			<dd class="col-sm-10">
+				<img src="@Model.ImageUrl" />
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.GitHubUrl)
+			</dt>
+			<dd class="col-sm-10">
+				<img src="@Model.GitHubUrl" />
+			</dd>
+			<dt>Skilled Languages</dt>
+			<dd>
+				<ul>
+					@foreach (string languageSkill in Model.SkilledLanguages)
+					{
+						<li>@languageSkill</li>
+					}
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</div>
+
+<br />
+
+<h4>Jane Doe</h4>
+<p>
+	<a class="btn btn-warning" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
+		View Profile
+	</a>
+</p>
+<div class="collapse" id="collapseExample3">
+	<div class="card card-body">
+		<dl class="row">
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.UserProfileId)
+			</dt>
+			<dd class="col-sm-10">
+				@Model.UserProfileId
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.FullName)
+			</dt>
+			<dd class="col-sm-10">
+				@Model.FullName
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Email)
+			</dt>
+			<dd class="col-sm-10">
+				@Model.Email
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.PhoneNumber)
+			</dt>
+			<dd class="col-sm-10">
+				<a href="tel:@Model.PhoneNumber">@Model.PhoneNumber</a>
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.ImageUrl)
+			</dt>
+			<dd class="col-sm-10">
+				<img src="@Model.ImageUrl" />
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.GitHubUrl)
+			</dt>
+			<dd class="col-sm-10">
+				<img src="@Model.GitHubUrl" />
+			</dd>
+			<dt>Skilled Languages</dt>
+			<dd>
+				<ul>
+					@foreach (string languageSkill in Model.SkilledLanguages)
+					{
+						<li>@languageSkill</li>
+					}
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</div>

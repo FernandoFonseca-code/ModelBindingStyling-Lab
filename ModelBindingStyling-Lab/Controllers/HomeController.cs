@@ -20,8 +20,8 @@ namespace ModelBindingStyling_Lab.Controllers
 
         public IActionResult UserProfile()
         {
-            IEnumerable<UserProfile> users = GetUserProfileData();
-            return View(users);
+            UserProfile user = GetUserProfileData();
+            return View(user);
         }
 
         public IActionResult PrinterList()
@@ -74,43 +74,18 @@ namespace ModelBindingStyling_Lab.Controllers
         /// This method returns hardcoded data for a UserProfile
         /// to use with modelbinding on a view
         /// </summary>
-        private static IEnumerable<UserProfile> GetUserProfileData()
+        private static UserProfile GetUserProfileData()
         {
-            return new List<UserProfile>
+            return new UserProfile()
             {
-                new UserProfile
-                {
-                    DateOfBirth = new DateOnly(1815, 7, 1),
-                    Email = "First.Programmer@gmail.com",
-                    FullName = "Ada Lovelace",
-                    GitHubUrl = "https://github.com/Octocat",
-                    ImageUrl = "https://placehold.co/150",
-                    PhoneNumber = "(253) 555-1234",
-                    UserProfileId = 10,
-                    SkilledLanguages = new List<string> { "C#", "Java", "C++" }
-                },
-                new UserProfile
-                {
-                    DateOfBirth = new DateOnly(1956, 10, 28),
-                    Email = "Bill.Gates@microsoft.com",
-                    FullName = "Bill Gates",
-                    GitHubUrl = "https://github.com/BillGates",
-                    ImageUrl = "https://placehold.co/150",
-                    PhoneNumber = "(425) 555-5678",
-                    UserProfileId = 20,
-                    SkilledLanguages = new List<string> { "BASIC", "C", "C#" }
-                },
-                new UserProfile
-                {
-                DateOfBirth = new DateOnly(1975, 6, 28),
-                Email = "Elon.Musk@tesla.com",
-                FullName = "Elon Musk",
-                GitHubUrl = "https://github.com/ElonMusk",
+                DateOfBirth = new DateOnly(1815, 7, 1),
+                Email = "First.Programmer@gmail.com",
+                FullName = "Ada Lovelace",
+                GitHubUrl = "https://github.com/Octocat",
                 ImageUrl = "https://placehold.co/150",
-                PhoneNumber = "(310) 555-7890",
-                UserProfileId = 30,
-                SkilledLanguages = new List<string> { "Python", "C++", "JavaScript" }
-                }
+                PhoneNumber = "(253) 555-1234",
+                UserProfileId = 10,
+                SkilledLanguages = new List<string> { "C#", "Java", "C++" }
             };
         }
 
