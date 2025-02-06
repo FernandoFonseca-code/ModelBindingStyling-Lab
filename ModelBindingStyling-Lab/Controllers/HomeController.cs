@@ -74,7 +74,7 @@ namespace ModelBindingStyling_Lab.Controllers
         /// This method returns hardcoded data for a UserProfile
         /// to use with modelbinding on a view
         /// </summary>
-        private UserProfile GetUserProfileData()
+        private static UserProfile GetUserProfileData()
         {
             return new UserProfile()
             {
